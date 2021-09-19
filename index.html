@@ -43,7 +43,7 @@
     console.log("Hello World!")
   </script> -->
 
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script charset="utf-8"  src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
     function createUniversalLink() {
     }
@@ -73,7 +73,7 @@
     }
 
     function getUserProfile() {
-      liff.getProfile() .then(profile => {
+      liff.getProfile().then(profile => {
         document.getElementById("pictureUrl").src = profile.pictureUrl
         document.getElementById("userId").append(profile.userId) 
         document.getElementById("statusMessage").append(profile.statusMessage)
