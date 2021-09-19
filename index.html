@@ -70,6 +70,11 @@
     }
 
     function getContext() {
+      document.getElementById("type").append(liff.getContext().type)
+      document.getElementById("viewType").append(liff.getContext().viewType)
+      document.getElementById("utouID").append(liff.getContext().utouTd)
+      document.getElementById("roomId").append(liff.getContext().roomId)
+      document.getElementById("groupId").append(liff.getContext().groupId)
     }
 
     function getEnvironment() {
@@ -102,20 +107,9 @@
     }
 
 
-     //  alert("LINE Developers x Skooldio")
-      // var myLiffId = "1656418689-zvbyLE3W";
-      // liff.init({liffId: myLiffId}).then(() => {
-      //    getEnvironment()
-      //    getUserProfile()
-      // getContext()
-      // getFriendship()
-      // createUniversalLink()
-     // });
-
-
-
     liff.init({ liffId: "1656418689-zvbyLE3W" }, () => {
       getEnvironment();
+      getContext();
     if (liff.isLoggedIn()) {
       runApp();
     } else {
