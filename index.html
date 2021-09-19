@@ -72,14 +72,14 @@
     function getContext() {
     }
 
-    function getUserProfile() {
-      liff.getProfile().then(profile => {
-        document.getElementById("pictureUrl").src = profile.pictureUrl
-        document.getElementById("userId").append(profile.userId) 
-        document.getElementById("statusMessage").append(profile.statusMessage)
-        document.getElementById("displayName").append(profile.displayName)
-      });
-    }
+    // function getUserProfile() {
+    //   liff.getProfile().then(profile => {
+    //     document.getElementById("pictureUrl").src = profile.pictureUrl
+    //     document.getElementById("userId").append(profile.userId) 
+    //     document.getElementById("statusMessage").append(profile.statusMessage)
+    //     document.getElementById("displayName").append(profile.displayName)
+    //   });
+    // }
 
     function getEnvironment() {
         document.getElementById("os").append(liff.getOS())
@@ -100,14 +100,36 @@
     }
 
 
+    function runApp() {
+      liff.getProfile().then(profile => {
+        document.getElementById("pictureUrl").src = profile.pictureUrl;
+        document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId;
+        document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName;
+        document.getElementById("statusMessage").innerHTML = '<b>StatusMessage:</b> ' + profile.statusMessage;
+        document.getElementById("getDecodedIDToken").innerHTML = '<b>Email:</b> ' + liff.getDecodedIDToken().email;
+      }).catch(err => console.error(err));
+    }
+
+
      //  alert("LINE Developers x Skooldio")
-      liff.init({ liffId: "1656418689-zvbyLE3W" }).then(() => {
-         getEnvironment()
-         getUserProfile()
+      // var myLiffId = "1656418689-zvbyLE3W";
+      // liff.init({liffId: myLiffId}).then(() => {
+      //    getEnvironment()
+      //    getUserProfile()
       // getContext()
       // getFriendship()
       // createUniversalLink()
-      });
+     // });
+
+
+
+    liff.init({ liffId: myLiffId }, () => {
+    if (liff.isLoggedIn()) {
+      runApp();
+    } else {
+      liff.login();
+    }
+  }, err => console.error(err.code, error.message));
 
   </script>
 </body>
