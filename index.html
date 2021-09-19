@@ -100,7 +100,7 @@
     }
 
 
-    function runApp() {
+    function getUserProfile() {
       liff.getProfile().then(profile => {
         document.getElementById("pictureUrl").src = profile.pictureUrl;
         document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId;
@@ -114,8 +114,8 @@
      //  alert("LINE Developers x Skooldio")
       // var myLiffId = "1656418689-zvbyLE3W";
       // liff.init({liffId: myLiffId}).then(() => {
-      //    getEnvironment()
-      //    getUserProfile()
+        //  getEnvironment()
+        //  getUserProfile()
       // getContext()
       // getFriendship()
       // createUniversalLink()
@@ -125,7 +125,8 @@
 
     liff.init({ liffId: "1656418689-zvbyLE3W" }, () => {
     if (liff.isLoggedIn()) {
-      runApp();
+         getEnvironment()
+         getUserProfile()
     } else {
       liff.login();
     }
