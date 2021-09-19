@@ -13,7 +13,7 @@
   <p id="version"><b>Version:</b> </p>
   <p id="isInClient"><b>isInClient:</b> </p>
   <p id="accessToken"><b>AccessToken:</b> </p>
-  <img id="pictureUrl">
+  <img id="pictureUrl" width="25%">
   <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
@@ -100,7 +100,7 @@
     }
 
 
-    function getUserProfile() {
+    function runApp() {
       liff.getProfile().then(profile => {
         document.getElementById("pictureUrl").src = profile.pictureUrl;
         document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId;
@@ -114,8 +114,8 @@
      //  alert("LINE Developers x Skooldio")
       // var myLiffId = "1656418689-zvbyLE3W";
       // liff.init({liffId: myLiffId}).then(() => {
-        //  getEnvironment()
-        //  getUserProfile()
+      //    getEnvironment()
+      //    getUserProfile()
       // getContext()
       // getFriendship()
       // createUniversalLink()
@@ -124,9 +124,9 @@
 
 
     liff.init({ liffId: "1656418689-zvbyLE3W" }, () => {
+      getEnvironment();
     if (liff.isLoggedIn()) {
-         getEnvironment()
-         getUserProfile()
+      runApp();
     } else {
       liff.login();
     }
