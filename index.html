@@ -72,15 +72,6 @@
     function getContext() {
     }
 
-    // function getUserProfile() {
-    //   liff.getProfile().then(profile => {
-    //     document.getElementById("pictureUrl").src = profile.pictureUrl
-    //     document.getElementById("userId").append(profile.userId) 
-    //     document.getElementById("statusMessage").append(profile.statusMessage)
-    //     document.getElementById("displayName").append(profile.displayName)
-    //   });
-    // }
-
     function getEnvironment() {
         document.getElementById("os").append(liff.getOS())
         document.getElementById("language").append(liff.getLanguage())
@@ -88,14 +79,14 @@
         document.getElementById("accessToken").append(liff.getAccessToken())
         document.getElementById("isInClient").append(liff.isInClient())
         
-        if(liff.isInClient()) {
-          document.getElementById('btnLogout').style.display = "none"
-        } else { 
-          document.getElementById('btnShare').style.display = "none"
-          document.getElementById('btnMsg').style.display = "none"
-          document.getElementById('btnScanCode').style.display = "none"
-          document.getElementById('btnClose').style.display = "none"
-        }
+        // if(liff.isInClient()) {
+        //   document.getElementById('btnLogout').style.display = "none"
+        // } else { 
+        //   document.getElementById('btnShare').style.display = "none"
+        //   document.getElementById('btnMsg').style.display = "none"
+        //   document.getElementById('btnScanCode').style.display = "none"
+        //   document.getElementById('btnClose').style.display = "none"
+        // }
         
     }
 
